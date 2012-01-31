@@ -1,0 +1,479 @@
+//============================================================
+//
+// General
+//
+//============================================================
+
+.floated-block(@float: left) {
+    display: block;
+    float: @float;
+}
+
+.clearfix() {
+    *zoom: 1;
+
+    &:before, &:after {
+        display: table;
+        content: "";
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+.ir() {
+    background-color: transparent;
+    background-repeat: no-repeat;
+    text-indent: -999em;
+    overflow: hidden;
+    text-align: left;
+    direction: ltr;
+    display: block;
+    border: 0;
+}
+
+.underlined(@dashOffset: 2px) {
+   background: transparent url('../img/sections/top-searches/paragraph-dash.png') 0px @dashOffset;
+   padding-bottom: @dashOffset;
+   margin-top: -@dashOffset;
+   letter-spacing: -1px;
+   position: relative;
+   /*font-style: italic;*/
+   line-height: 44px;
+   font-weight: 300;
+   font-size: 25px;
+   display: block;
+}
+
+.sectionHeader() {
+   padding-bottom: 8px;
+   letter-spacing: -1px;
+   /*font-style: italic;*/
+   position: relative;
+   font-size: 35px;
+   color: #111111;
+}
+
+// Button
+//------------------------------------------------------------
+
+.big-button() {
+    background: transparent url(../../images/quarterly/gadgets/youtube/sprite-youtube.png) 0 -100px no-repeat;
+    color: #fff;
+    cursor: pointer;
+    display: table;
+    height: 118px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    width: 120px;
+    *zoom: 1;
+
+    span.wrap {
+      display: table-cell;
+      font-family: @BellMT;
+      font-size: 18px;
+      font-style: italic;
+      line-height: 1;
+      vertical-align: middle;
+      *position: absolute;
+      *top: 50%;
+      *left: 5%;
+
+      span.txt {
+        display: block;
+        padding: 0 20px;
+        *position: relative;
+        *top: -50%;
+      }
+
+    }
+}
+
+  .big-button-hover() {
+    background-position: 0 -220px;
+    color: #fff;
+  }
+
+  .button-active() {
+      .box-shadow(inset 0, 1px, 2px, 0, rgba(0,0,0,0.1));
+  }
+
+// Prev & Next icons buttons
+//------------------------------------------------------------
+
+.prev-next-icons() {
+  .prev,
+  .next {
+
+      position: relative;
+
+      width: 35px;
+      height: 30px;
+
+      display: block;
+      float: left;
+
+      .icon {
+
+          .ir;
+          margin-left: -4px;
+          margin-top: -7px;
+          position: absolute;
+          display: block;
+          height: 14px;
+          width: 8px;
+          left: 50%;
+          top: 50%;
+      }
+
+  }
+
+  .prev {
+      .border-radius(2px 0 0 2px);
+  }
+
+  .next {
+      .border-radius(0 2px 2px 0);
+      margin-left: -1px;
+  }
+
+  .prev .icon {
+      background-position: 0px 0px;
+  }
+      .prev:hover .icon {
+          background-position: 0px -14px;
+      }
+
+  .next .icon {
+      background-position: -9px 0px;
+  }
+      .next:hover .icon {
+          background-position: -9px -14px;
+      }
+
+  .prev:hover,
+  .next:hover {
+      .button-hover();
+  }
+
+  .prev:active,
+  .next:active {
+      .button-active();
+  }
+}
+
+//============================================================
+//
+// linear-gradient
+//
+//============================================================
+
+.linear-gradient() {
+    background-image: -webkit-linear-gradient(@arguments);
+    background-image:    -moz-linear-gradient(@arguments);
+    background-image:     -ms-linear-gradient(@arguments);
+    background-image:      -o-linear-gradient(@arguments);
+    background-image:         linear-gradient(@arguments);
+}
+
+
+
+//============================================================
+//
+// box-sizing
+//
+// @param sizing-method       :  content-box, border-box;
+//
+// @see http://www.w3.org/TR/css3-ui/#box-sizing
+//
+//============================================================
+
+.box-sizing() {
+   -webkit-box-sizing: @arguments;
+      -moz-box-sizing: @arguments;
+           box-sizing: @arguments;
+}
+
+
+
+//============================================================
+//
+// border-radius
+//
+// @param top-left-radius     :  px, em, %;
+// @param top-right-radius    :  px, em, %;
+// @param bottom-right-radius :  px, em, %;
+// @param bottom-left-radius  :  px, em, %;
+//
+// @see http://www.w3.org/TR/css3-background/#border-radius
+//
+//============================================================
+
+.border-radius() {
+      -webkit-border-radius: @arguments;
+         -moz-border-radius: @arguments;
+              border-radius: @arguments;
+
+    -webkit-background-clip: padding-box;
+       -moz-background-clip: padding;
+            background-clip: padding-box;
+}
+
+
+
+//============================================================
+//
+// box-shadow
+//
+// @param colour              :  #000, rgba, hsla;
+// @param horizontal-offset   :  px, em;
+// @param vertical-offset     :  px, em;
+// @param blur-radius         :  px, em;
+// @param spread-distance     :  px, em,
+// @param inset               :  inset;
+//
+// @see http://www.w3.org/TR/css3-background/#box-shadow
+//
+//============================================================
+
+.box-shadow() {
+    -webkit-box-shadow: @arguments;
+       -moz-box-shadow: @arguments;
+        -ms-box-shadow: @arguments;
+         -o-box-shadow: @arguments;
+            box-shadow: @arguments;
+}
+
+
+
+//============================================================
+//
+// transform
+//
+// @param functions           :  matrix()
+//                            :  translate()
+//                            :  scale()
+//                            :  rotate()
+//                            :  skew()
+//
+// @see http://www.w3.org/TR/css3-2d-transforms/
+//
+//============================================================
+
+.transform() {
+    -webkit-transform: @arguments;
+       -moz-transform: @arguments;
+        -ms-transform: @arguments;
+         -o-transform: @arguments;
+            transform: @arguments;
+}
+
+.transform-origin() {
+    -webkit-transform-origin: @arguments;
+       -moz-transform-origin: @arguments;
+        -ms-transform-origin: @arguments;
+         -o-transform-origin: @arguments;
+            transform-origin: @arguments;
+}
+
+
+
+//============================================================
+//
+// matrix
+//
+// @param a                   :  Number;
+// @param b                   :  Number;
+// @param c                   :  Number;
+// @param d                   :  Number;
+// @param e                   :  Number;
+// @param f                   :  Number;
+//
+// @see http://www.w3.org/TR/css3-2d-transforms/
+//
+//============================================================
+
+.matrix() {
+    -webkit-transform: matrix(@arguments);
+       -moz-transform: matrix(@arguments);
+        -ms-transform: matrix(@arguments);
+         -o-transform: matrix(@arguments);
+            transform: matrix(@arguments);
+}
+
+
+
+//============================================================
+//
+// translate
+//
+// @param translate-x         :  px;
+// @param translate-y         :  px;
+//
+// @see http://www.w3.org/TR/css3-2d-transforms/
+//
+//============================================================
+
+.translate() {
+    -webkit-transform: translate(@arguments);
+       -moz-transform: translate(@arguments);
+        -ms-transform: translate(@arguments);
+         -o-transform: translate(@arguments);
+            transform: translate(@arguments);
+}
+
+
+
+//============================================================
+//
+// scale
+//
+// @param scale-x             :  0.5, 2, etc;
+// @param scale-y             :  0.5, 2, etc;
+//
+// @see http://www.w3.org/TR/css3-2d-transforms/
+//
+//============================================================
+
+.scale() {
+    -webkit-transform: scale(@arguments);
+       -moz-transform: scale(@arguments);
+        -ms-transform: scale(@arguments);
+         -o-transform: scale(@arguments);
+            transform: scale(@arguments);
+}
+
+
+
+//============================================================
+//
+// rotate
+//
+// @param angle               :  0deg;
+//
+// @see http://www.w3.org/TR/css3-2d-transforms/
+//
+//============================================================
+
+.rotate() {
+    -webkit-transform: rotate(@arguments);
+       -moz-transform: rotate(@arguments);
+        -ms-transform: rotate(@arguments);
+         -o-transform: rotate(@arguments);
+            transform: rotate(@arguments);
+}
+
+
+
+//============================================================
+//
+// skew
+//
+// @param axis-x              :  0deg;
+// @param axis-y              :  0deg;
+//
+// @see http://www.w3.org/TR/css3-2d-transforms/
+//
+//============================================================
+
+.skew() {
+    -webkit-transform: skew(@arguments);
+       -moz-transform: skew(@arguments);
+        -ms-transform: skew(@arguments);
+         -o-transform: skew(@arguments);
+            transform: skew(@arguments);
+}
+
+
+
+//============================================================
+//
+// backface-visibility
+//
+// @param visibility          :  visible | hidden;
+//
+// @see http://www.w3.org/TR/css3-3d-transforms/
+//
+//============================================================
+
+.backface-visibility() {
+    -webkit-backface-visibility: @arguments;
+       -moz-backface-visibility: @arguments;
+        -ms-backface-visibility: @arguments;
+         -o-backface-visibility: @arguments;
+            backface-visibility: @arguments;
+}
+
+
+
+//============================================================
+//
+// transition
+//
+// @param properties          :  all, left, opacity, etc;
+// @param duration            :  1s, 1000ms;
+// @param delay               :  1s, 1000ms;
+// @param easing              :  linear, ease-in-out, etc;
+//
+// @see http://www.w3.org/TR/css3-transitions/
+//
+//============================================================
+
+.transition() {
+    -webkit-transition: @arguments;
+       -moz-transition: @arguments;
+        -ms-transition: @arguments;
+         -o-transition: @arguments;
+            transition: @arguments;
+}
+
+
+
+//============================================================
+//
+// easing
+//
+// Thanks to Robert Penner for his sterling work on easing,
+// and to Matthew Lein for converting these functions into
+// approximated cubic-bezier functions. Respect.
+//
+// @see http://robertpenner.com/
+// @see http://matthewlein.com/ceaser/
+//
+//============================================================
+
+// Cubic
+@easeInCubic     :  cubic-bezier(0.550, 0.055, 0.675, 0.190);
+@easeOutCubic    :  cubic-bezier(0.215, 0.610, 0.355, 1.000);
+@easeInOutCubic  :  cubic-bezier(0.645, 0.045, 0.355, 1.000);
+
+// Circ
+@easeInCirc      :  cubic-bezier(0.600, 0.040, 0.980, 0.335);
+@easeOutCirc     :  cubic-bezier(0.075, 0.820, 0.165, 1.000);
+@easeInOutCirc   :  cubic-bezier(0.785, 0.135, 0.150, 0.860);
+
+// Expo
+@easeInExpo      :  cubic-bezier(0.950, 0.050, 0.795, 0.035);
+@easeOutExpo     :  cubic-bezier(0.190, 1.000, 0.220, 1.000);
+@easeInOutExpo   :  cubic-bezier(1.000, 0.000, 0.000, 1.000);
+
+// Quad
+@easeInQuad      :  cubic-bezier(0.550, 0.085, 0.680, 0.530);
+@easeOutQuad     :  cubic-bezier(0.250, 0.460, 0.450, 0.940);
+@easeInOutQuad   :  cubic-bezier(0.455, 0.030, 0.515, 0.955);
+
+// Quart
+@easeInQuart     :  cubic-bezier(0.895, 0.030, 0.685, 0.220);
+@easeOutQuart    :  cubic-bezier(0.165, 0.840, 0.440, 1.000);
+@easeInOutQuart  :  cubic-bezier(0.770, 0.000, 0.175, 1.000);
+
+// Quint
+@easeInQuint     :  cubic-bezier(0.755, 0.050, 0.855, 0.060);
+@easeOutQuint    :  cubic-bezier(0.230, 1.000, 0.320, 1.000);
+@easeInOutQuint  :  cubic-bezier(0.860, 0.000, 0.070, 1.000);
+
+// Sine
+@easeInSine      :  cubic-bezier(0.470, 0.000, 0.745, 0.715);
+@easeOutSine     :  cubic-bezier(0.390, 0.575, 0.565, 1.000);
+@easeInOutSine   :  cubic-bezier(0.445, 0.050, 0.550, 0.950);
