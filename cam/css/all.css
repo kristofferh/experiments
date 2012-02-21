@@ -226,6 +226,15 @@ td, td img {
   text-transform: uppercase;
   z-index: 10;
 }
+.logo {
+  background: transparent url(/img/fi-logo.png) 0 0 no-repeat;
+  height: 104px;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  width: 104px;
+  z-index: 10;
+}
 h1 {
   color: white;
   font-size: 60px;
@@ -244,6 +253,7 @@ h1 {
 }
 #roll {
   list-style: none;
+  margin: 0 0 0 200px;
 }
 #roll li {
   float: left;
