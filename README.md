@@ -1,3 +1,3 @@
 # Experiments
 
-Random experiments... Hmm.
+Random experiments...
